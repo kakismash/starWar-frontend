@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://star-war-backend.herokuapp.com/'
+  apiURL: 'https://star-war-backend.herokuapp.com/',
+  apiURLImage: 'https://github.com/kakismash/starwars/tree/master/src/static/'
 };
 
 /*

@@ -33,7 +33,7 @@ export class PlanetComponent implements OnInit {
   }
 
   getImage(path: string): string {
-    return environment.apiURL + path;
+    return environment.apiURLImage + path;
   }
 
   getPlanet(id: number): void {
