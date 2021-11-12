@@ -1,0 +1,26 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let film of films" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{film.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Episode: {{film.episode_id}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <span style="width: 50%;">
+          <div>director: {{film.director}}</div>
+          <div>producer: {{film.producer}}</div>
+          <div>release date: {{film.release_date}}</div>
+          <div>principal cast number: {{film.characters.length}}</div>
+          <div>planets: {{film.planets.length}}</div>
+          <div>opening crawl: {{film.opening_crawl}}</div>
+
+        </span>
+            <span style="width: 50%;">
+            <img src="{{getImage(film.image)}}" alt="">
+          </span>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

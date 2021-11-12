@@ -1,0 +1,27 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let planet of planets" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{planet.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Population: {{planet.population}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <span style="width: 50%;">
+            <div>rotation period: {{planet.rotation_period}}</div>
+            <div>orbital period: {{planet.orbital_period}}</div>
+            <div>diameter: {{planet.diameter}}</div>
+            <div>climate: {{planet.climate}}</div>
+            <div>gravity: {{planet.gravity}}</div>
+            <div>terrain: {{planet.terrain}}</div>
+            <div>residents in movies: {{planet.residents.length}}</div>
+            <div>time in movies: {{planet.films.length}}</div>
+          </span>
+            <span style="width: 50%;">
+              <img src="{{getImage(planet.image)}}" alt="">
+            </span>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

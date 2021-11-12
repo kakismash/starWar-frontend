@@ -5,16 +5,58 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+
+import { PeopleComponent } from './people/people.component';
+import { HomeComponent } from './home/home.component';
+import { FilmComponent } from './film/film.component';
+import { PlanetComponent } from './planet/planet.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RequestInterceptor } from './interceptor/request.interceptor';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PeopleComponent,
+    HomeComponent,
+    FilmComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+
+
+    HttpClientModule,
+
+    MatToolbarModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatInputModule,
+
+
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
