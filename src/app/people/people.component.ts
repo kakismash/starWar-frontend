@@ -33,7 +33,7 @@ export class PeopleComponent implements OnInit {
   }
 
   getImage(path: string): string {
-    return environment.apiURLImage + path;
+    return path;
   }
 
   getpeople(id: number): void {

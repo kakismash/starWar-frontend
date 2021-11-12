@@ -33,7 +33,7 @@ export class FilmComponent implements OnInit {
   }
 
   getImage(path: string): string {
-    return environment.apiURLImage + path;
+    return path;
   }
 
   getfilm(id: number): void {
