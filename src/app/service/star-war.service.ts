@@ -14,11 +14,11 @@ export class StarWarService {
   constructor(private http: HttpClient) {}
 
   getGeneral(): Observable<any> {
-    return this.http.get<any>(this.url + 'starwar/');
+    return this.http.get<any>(this.url + 'getMyStarWarsCollection/');
   }
 
   getWithPath(path: string): Observable<any> {
-    return this.http.get<any>(this.url + 'starwar/' + path, )
+    return this.http.get<any>(this.url + 'getMyStarWarsCollection/' + path, )
   }
 
   getImage(path: string): Observable<any> {
