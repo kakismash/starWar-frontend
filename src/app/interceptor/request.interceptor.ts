@@ -17,7 +17,7 @@ export class RequestInterceptor implements HttpInterceptor {
 
     let req = request;
 
-    if (request.url && request.url.includes('starwar/') && this.sessionService.currentUser !== '') {
+    if (request.url && request.url.includes('getMyStarWarsCollection/') && this.sessionService.currentUser !== '') {
 
       let clonedRequest = request.clone({ headers: request.headers.append('current-user', this.sessionService.currentUser) })
 
