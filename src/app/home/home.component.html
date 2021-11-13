@@ -1,1 +1,18 @@
-<p>{{article}}</p>
+<button mat-button [matMenuTriggerFor]="menu" *ngIf="currentCrawl" color="primary">{{currentCrawl.episode}}</button>
+<mat-menu #menu="matMenu">
+    <button *ngFor="let crawl of crawls" mat-menu-item (click)="setCrawl(crawl)">{{crawl.episode}}</button>
+</mat-menu>
+
+<div *ngIf="ready" class="starwarContent">
+    <div *ngIf="currentCrawl !== undefined">
+        <div class="a-long-time-ago">
+            {{currentCrawl.name}}
+            <br> {{currentCrawl.short}}
+        </div>
+        <div class="crawl">
+            <div>
+                <p>{{currentCrawl.crawl}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,25 +2,24 @@
     <mat-expansion-panel *ngFor="let film of films" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                {{film.title}}
+                <b>Episode:</b> {{film.episode_id}}
             </mat-panel-title>
-            <mat-panel-description>
-                Episode: {{film.episode_id}}
+            <mat-panel-description style="flex:1; justify-content: center;">
+                <b>{{film.title}}</b>
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-card>
-            <span style="width: 50%;">
-          <div>director: {{film.director}}</div>
-          <div>producer: {{film.producer}}</div>
-          <div>release date: {{film.release_date}}</div>
-          <div>principal cast number: {{film.characters.length}}</div>
-          <div>planets: {{film.planets.length}}</div>
-          <div>opening crawl: {{film.opening_crawl}}</div>
-
-        </span>
-            <span style="width: 50%;">
-            <img src="{{getImage(film.image)}}" alt="">
-          </span>
+        <mat-card style="display: flex; flex-direction: row;">
+            <span style="flex: auto;">
+              <div><b>director:</b> {{film.director}}</div>
+              <div><b>producer:</b> {{film.producer}}</div>
+              <div><b>release date:</b> {{film.release_date}}</div>
+              <div><b>principal cast number:</b> {{film.characters.length}}</div>
+              <div><b>planets:</b> {{film.planets.length}}</div>
+              <!-- <div><b>opening crawl:</b> {{film.opening_crawl}}</div> -->
+            </span>
+            <span style="flex: auto;">
+              <img class="imageStyle" src="{{getImage(film.image)}}" alt="">
+            </span>
         </mat-card>
     </mat-expansion-panel>
 </mat-accordion>

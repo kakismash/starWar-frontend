@@ -1,31 +1,42 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <button (click)="drawer.toggle()" mat-icon-button>
+        <button *ngIf="isDaneOrMatt()" (click)="drawer.toggle()" mat-icon-button>
           <mat-icon>menu</mat-icon>
         </button>
-        <mat-form-field>
+        <span class="spacer"></span>
+        <span class="navbarElement">
+          <mat-form-field>
             <input type="text" matInput placeholder="Enter user" [(ngModel)]="user">
-            <button mat-button *ngIf="user" matSuffix mat-icon-button aria-label="Clear" (click)=" user = '' ">
+            <button mat-button *ngIf="user" matSuffix mat-icon-button aria-label="Clear" (click)="clearUser(drawer)">
                 <mat-icon>close</mat-icon>
               </button>
-        </mat-form-field>
-        <button mat-icon-button (click)="setOrChangeUser()">
-          <mat-icon color="warn">{{isDaneOrMatt() ? 'find_replace' : 'done'}}</mat-icon>
-        </button>
+          </mat-form-field>
+          <button mat-icon-button (click)="setOrChangeUser()">
+            <mat-icon color="warn">{{isDaneOrMatt() ? 'find_replace' : 'done'}}</mat-icon>
+          </button>
+        </span>
+        <span class="navbarElement">
+        <mat-radio-group (change)="setOrChangeUser()" [(ngModel)]="user" aria-label="Select an option">
+            <mat-radio-button class="spacing" value="">Not User</mat-radio-button>
+            <mat-radio-button class="spacing" value="Matt">Matt</mat-radio-button>
+            <mat-radio-button class="spacing" value="Dane">Dane</mat-radio-button>
+        </mat-radio-group>
+
+      </span>
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-drawer-container style="height: 94%;">
+<mat-drawer-container style="height: 93%; background-color: black;">
     <mat-drawer #drawer class="example-sidenav" mode="side">
         <mat-list>
-            <mat-list-item *ngFor="let route of routes">
+            <mat-list-item *ngFor="let route of getRoutes()">
                 <button routerLink="{{route.path}}" mat-button>
                   <mat-icon>{{route.icon}}</mat-icon> {{route.name}}
                 </button>
             </mat-list-item>
         </mat-list>
     </mat-drawer>
-    <mat-drawer-content style="height: 94%;">
-        <mat-card style="height: 100%;">
+    <mat-drawer-content style="height: 100%;" [ngStyle]="{'overflow': (isNotHomeRoute()) ? 'auto' : 'hidden'}">
+        <mat-card class="cardBackground">
             <router-outlet></router-outlet>
         </mat-card>
     </mat-drawer-content>

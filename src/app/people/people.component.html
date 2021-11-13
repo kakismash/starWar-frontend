@@ -2,24 +2,25 @@
     <mat-expansion-panel *ngFor="let people of peoples" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                {{people.name}}
+                <b>{{people.name}}</b>
             </mat-panel-title>
-            <mat-panel-description>
-                Gender: {{people.gender}}
+            <mat-panel-description style="flex:1; justify-content: right;">
+                <b>Gender:</b>
+                <mat-icon>{{getIcon(people.gender)}}</mat-icon>
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-card>
-            <span style="width: 50%;">
-          <div>height: {{people.height}}</div>
-          <div>mass: {{people.mass}}</div>
-          <div>hair color: {{people.hair_color}}</div>
-          <div>skin color: {{people.skin_color}}</div>
-          <div>eye color: {{people.eye_color}}</div>
-          <div>birth year: {{people.birth_year}}</div>
-          <div>time in movies: {{people.films.length}}</div>
+        <mat-card style="display: flex; flex-direction: row;">
+            <span style="flex: auto;">
+          <div><b>height:</b> {{people.height}}</div>
+          <div><b>mass:</b> {{people.mass}}</div>
+          <div><b>hair color:</b> {{people.hair_color}}</div>
+          <div><b>skin color:</b> {{people.skin_color}}</div>
+          <div><b>eye color:</b> {{people.eye_color}}</div>
+          <div><b>birth year:</b> {{people.birth_year}}</div>
+          <div><b>time in movies:</b> {{people.films.length}}</div>
         </span>
-            <span style="width: 50%;">
-            <img src="{{getImage(people.image)}}" alt="">
+            <span style="flex: auto;">
+            <img class="imageStyle" src="{{getImage(people.image)}}" alt="">
           </span>
         </mat-card>
     </mat-expansion-panel>

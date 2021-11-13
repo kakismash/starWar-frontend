@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Crawl } from '../model/crawl.model';
 import { StarWarService } from '../service/star-war.service';
 
 @Component({
@@ -8,18 +9,44 @@ import { StarWarService } from '../service/star-war.service';
 })
 export class HomeComponent implements OnInit {
 
-  article: string = '';
+  crawls: Array<Crawl> = new Array<Crawl>();
+  currentCrawl!: Crawl;
+  ready: boolean = false;
 
-  constructor(private starWarService: StarWarService) { }
+  audio = new Audio();
+
+
+  constructor(private starWarService: StarWarService,
+              private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.audio.src = "../../../assets/star-wars-theme-song.mp3";
+    this.audio.load();
 
     this.starWarService.getGeneral().subscribe(r => {
-      this.article = r;
+      this.crawls = r;
+      this.currentCrawl = this.crawls[0];
+      this.ready = true;
+      this.playAudio();
     });
 
   }
 
+  setCrawl(crawl: Crawl): void {
+    this.ready = false;
+    this.stopAudio();
+    this.cd.detectChanges();
+    this.playAudio();
+    this.currentCrawl = crawl;
+    this.ready = true;
+  }
 
+  playAudio(): void {
+    this.audio.play();
+  }
 
+  stopAudio(): void {
+    this.audio.pause();
+    this.audio.currentTime = 0;
+  }
 }

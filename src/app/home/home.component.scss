@@ -1,0 +1,82 @@
+.starwarContent {
+    overflow: none;
+}
+
+.a-long-time-ago {
+    font-size: 32px;
+    color: #4bd5ee;
+    opacity: 0;
+    animation-delay: 1s;
+    line-height: 30px;
+    animation-duration: 4s;
+    animation-name: a-long-time-ago;
+    animation-timing-function: ease-out;
+}
+
+@keyframes a-long-time-ago {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.crawl {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 800px;
+    margin: 0 0 -20px -400px;
+    top: auto;
+    bottom: 0;
+    height: 60em;
+    color: #ffff66;
+    font-size: 50px;
+    line-height: 64px;
+    text-align: justify;
+    transform-origin: center bottom;
+    transform: perspective(300px) rotateX(25deg);
+}
+
+.crawl>div {
+    position: absolute;
+    top: 100%;
+    animation-delay: 5s;
+    animation-duration: 50s;
+    animation-name: crawl;
+    animation-timing-function: linear;
+}
+
+@keyframes crawl {
+    0% {
+        top: 100%;
+        opacity: 1;
+    }
+    20% {
+        top: 60%;
+        opacity: 1;
+    }
+    40% {
+        top: 20%;
+        opacity: 1;
+    }
+    60% {
+        top: -20%;
+        opacity: 1;
+    }
+    80% {
+        top: -60%;
+        opacity: 1;
+    }
+    100% {
+        top: -100%;
+        opacity: 0;
+    }
+}

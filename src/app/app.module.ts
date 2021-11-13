@@ -13,6 +13,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { PeopleComponent } from './people/people.component';
 import { HomeComponent } from './home/home.component';
@@ -49,7 +52,9 @@ import { RequestInterceptor } from './interceptor/request.interceptor';
     MatCardModule,
     MatExpansionModule,
     MatInputModule,
-
+    MatSelectModule,
+    MatMenuModule,
+    MatRadioModule,
 
   ],
   providers: [{

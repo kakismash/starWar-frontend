@@ -46,4 +46,14 @@ export class PeopleComponent implements OnInit {
           this.loading = false;
         });
   }
+
+  getIcon(gender: string): string {
+    if (gender === 'male') {
+      return 'male'
+    } else if (gender === 'female') {
+      return 'female';
+    } else {
+      return 'smart_toy';
+    }
+  }
 }
