@@ -24,6 +24,12 @@ export class AppComponent {
     })
 
     this.routes.push({
+      name: '3D Models',
+      icon: '3d_rotation',
+      path: '/threed'
+    })
+
+    this.routes.push({
       name: 'Films',
       icon: 'theaters',
       path: '/film'
@@ -40,6 +46,9 @@ export class AppComponent {
       icon: 'public',
       path: '/planet'
     })
+
+
+
 
   }
 

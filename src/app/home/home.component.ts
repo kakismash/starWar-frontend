@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Crawl } from '../model/crawl.model';
 import { StarWarService } from '../service/star-war.service';
 
@@ -7,7 +7,7 @@ import { StarWarService } from '../service/star-war.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   crawls: Array<Crawl> = new Array<Crawl>();
   currentCrawl!: Crawl;
@@ -30,6 +30,10 @@ export class HomeComponent implements OnInit {
       this.playAudio();
     });
 
+  }
+
+  ngOnDestroy(): void {
+    this.stopAudio();
   }
 
   setCrawl(crawl: Crawl): void {

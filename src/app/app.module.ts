@@ -24,6 +24,8 @@ import { PlanetComponent } from './planet/planet.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestInterceptor } from './interceptor/request.interceptor';
+import { SceneComponent } from './scene/scene.component';
+import { ThreeComponent } from './three/three.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { RequestInterceptor } from './interceptor/request.interceptor';
     PeopleComponent,
     HomeComponent,
     FilmComponent,
-    PlanetComponent
+    PlanetComponent,
+    SceneComponent,
+    ThreeComponent
   ],
   imports: [
     BrowserModule,

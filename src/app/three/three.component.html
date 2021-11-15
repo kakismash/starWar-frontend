@@ -1,0 +1,12 @@
+<mat-accordion>
+    <mat-expansion-panel #panel *ngFor="let model of models" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <b>{{model.name}}</b>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card style="display: flex; flex-direction: row; height: 600px;">
+            <app-scene style="height: 100%; width: 100%;" *ngIf="panel.expanded" [path]="model.path" [type]="model.type" [scale]="model.scale"></app-scene>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>
